@@ -1,0 +1,12 @@
+# Hint: all keys of a hash are automatically unique
+
+def unique_elements(arr)
+    newArr = []
+    hash = Hash.new(0)
+    arr.each {|char| hash[char] += 1}
+    hash.each_key {|key| newArr << key }
+    return newArr
+end
+
+print unique_elements(['a', 'b', 'a', 'a', 'b', 'c']) #=> ["a", "b", "c"]
+puts
