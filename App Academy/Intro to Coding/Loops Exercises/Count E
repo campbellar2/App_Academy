@@ -1,0 +1,16 @@
+def count_e(word)
+    count = 0
+    i = 0
+    while count < word.length
+        if word[count] == "e"
+            i += 1
+            count += 1
+        else 
+            count +=1
+        end
+    end
+    return i
+end
+
+puts count_e("movie") # => 1
+puts count_e("excellent") # => 3
