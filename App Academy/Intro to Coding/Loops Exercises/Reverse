@@ -1,0 +1,14 @@
+def reverse(word)
+    i = 0
+    rev = ""
+    while i < word.length
+        char = word[i]
+        rev = char + rev
+        i += 1
+    end
+    return rev
+end
+
+puts reverse("cat")          # => "tac"
+puts reverse("programming")  # => "gnimmargorp"
+puts reverse("bootcamp")     # => "pmactoob"
