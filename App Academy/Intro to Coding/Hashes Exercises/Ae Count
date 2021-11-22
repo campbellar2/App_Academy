@@ -1,0 +1,19 @@
+def ae_count(str)
+    count1 = 0
+    count2 = 0
+    str.each_char do |char|
+        if char == "a"
+            count1 += 1
+        elsif char == "e"
+            count2 += 1
+        end
+    end
+    hash = {
+        "a" => count1,
+        "e" => count2
+    }
+    return hash
+end
+
+puts ae_count("everyone can program") #=> {"a"=>2, "e"=>3}
+puts ae_count("keyboard") #=> {"a"=>1, "e"=>1}
