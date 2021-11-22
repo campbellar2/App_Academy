@@ -1,0 +1,17 @@
+def first_half(array)
+    i = 0
+    half = []
+
+    while i < (array.length / 2.0)
+        num = array[i]
+        half << num
+        
+        i += 1
+    end
+
+    return half
+end
+
+print first_half(["Brian", "Abby", "David", "Ommi"]) # => ["Brian", "Abby"]
+puts
+print first_half(["a", "b", "c", "d", "e"])          # => ["a", "b", "c"]
