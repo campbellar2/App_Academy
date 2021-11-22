@@ -1,0 +1,120 @@
+#App Academy Open Notes#
+
+#### Enumerables & Ranges ####
+
+#   Array Methods ####################################
+# << adds one element to the end of an array, evaluates to the array
+
+# array.push == adds one or multiple elements, also evaluates to the array
+# array.pop == removes the last element of the array, BUT evaluates to the element removed
+
+# array.unshift == adds an element to the front of the array, evaluates to the array
+# array.shift == removes the first element of an array, BUT evaluates to the element removed
+
+###############
+
+# array/string.index(element) evaluates to the index where element is found
+# array/string.include?(element) evaluates to a boolean indicating if the element is found
+
+# array/string.reverse evaluates to a new reverse version of the array or string, NOTE doesnt reverse it by itself, need to set to a variable or 'puts' it
+# array/string.reverse! will reverse an array/string on its own, altering the original array
+
+##############
+
+# array/string slicing
+#   array[startIndex..endIndex] grabs elements from startIndex to endIndex, inclusive
+#   array[startIndex...endIndex] grabs elements from startIndex to endIndex, NOT inclusive of endIndex
+#       NOTE - -1, -2, -3 can be used to refer to the last, second to last, third to last indices, respectively 
+
+##############
+
+# string.split evaluates to an array
+#   string.split("where you want to cut the string, this element gets cut out of the array")
+# array.join evaluates to a string
+#   array.join("what element you want between the elements of the array")
+# combing these allows you to replace what you can with what you join with
+
+########################################################
+
+#   Enumerable Methods #################################
+# array
+#   .each
+
+#   array.each{ |month| puts month } with |month| acting like a variable
+#       OR      #
+#   array.each do |ele|
+#       puts ele
+#       puts "---"
+#   end 
+#   For multiple lines of code
+
+#   .each_with_index
+#       this outputs two variables, ie |ele, index|
+
+# string        Same as above, with strings instead of arrays
+#   .each_char
+#   .each_char.with_index
+
+# range enumerables
+#   (start..end).each, iterate from start to end (inclusive)
+#   (start...end).each, iterate from start to end (excluding end)
+
+# num.times {} runes the code block num times
+
+
+####################################################################################
+
+#### Nested Loops & 2D Arrays ####
+
+# Loops while inside the body of a loop
+# num.to_s = converts a number to a string
+
+# 2D array is an array with arrays inside
+# Iterating through 2D arrays w/ nested loops, as 2D arrays are essentially nested arrays
+
+####################################################################################
+
+#### Hashes ####
+
+# A new data structure
+# 'key => value' - pairs
+
+# my_hash = {"name" => "App Academy", "color" => "red", "age" => 5, "isAwsome" => true }
+# puts my_hash["string"] #prints "App Academy"
+
+#to change values
+    # my_hash["color"] = "pink"
+    # my_hash["age"] += 1
+
+# Hash methods
+    # .length = evaluates to amount of pairs in hash
+    # .has_key?(k) 
+    # .has_value?(v)
+    # .keys = evaluates to an array of the keys
+    # .values = evaluates to an array of the values
+# can add value pairs after hash is defined by putting hash["key"] = "value"
+
+# use hashes to have multiple data about a singular thing, use an array to have a collection of many similar things
+
+# Hash enumerables
+    # .each = need two outputs, for key and for value
+    # .each_key
+    # .each_value
+
+# Hash default value is nil
+# Hash.new(default)
+# counter hash strategy
+# counter hash
+    #str = "mississipi"
+    #count = Hash.new(0)
+    #
+    #str.each_char {|char| count[char] += 1}
+    #this counts how many of each character are in a string
+# sort_by
+    # count.sort_by { |k, v| v }
+
+# nil
+    # represents "nothing" or "empty"
+    # commonly appears as a default value
+
+####################
