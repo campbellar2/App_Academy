@@ -1,0 +1,21 @@
+def most_vowels(sentence)
+    vowelCount = {}
+    sentence.split.each do |word|
+        vowelCount[word] = vowel_count(word)
+    end
+    ordered = vowelCount.sort_by {|k, v| v}
+    return ordered[-1][0]
+end
+
+def vowel_count(word)
+    count = 0
+    vowels = "aeiou"
+    word.each_char do |char| 
+        if vowels.include?(char)
+            count += 1
+        end
+    end
+    return count
+end
+
+print most_vowels("what a wonderful life") #=> "wonderful"
