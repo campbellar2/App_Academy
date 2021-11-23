@@ -118,3 +118,18 @@
     # commonly appears as a default value
 
 ####################
+
+#### Array-Giving Enumerables ###
+
+    # map - create a new array, modifying elements of an existing array
+    # select - write an expression that evaluates to a boolean, will select elements of an array if it evaluates to true
+
+# new_Arr = arr.map { |ele| ele.upcase + "!"} 
+
+# nums = [1, 2, 3, 4, 5, 6]
+# evens = nums.select {|element| ele % 2 == 0}
+# evens = [2, 4, 6]
+
+# arr = ["apple", "bootCAMP", "caRrot", "DaNce"]
+# newArr = arr.map {|word| word[0].upcase + word[1..-1].downcase }
+# newArr = ["Apple", "Bootcamp", "Carrot", "Dance"]
