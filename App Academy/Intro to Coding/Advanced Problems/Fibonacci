@@ -1,0 +1,25 @@
+def fibonacci(length)
+    arr = []
+    if length == 0
+        return arr
+    elsif length < 3
+        length.times {arr << 1}
+        return arr
+    else 
+        arr = [1, 1]
+        num = length - 2
+        num.times do
+            arr << arr[-1] + arr[-2]
+        end
+        return arr
+    end
+end
+
+print fibonacci(0) # => []
+puts
+print fibonacci(1) # => [1]
+puts
+print fibonacci(6) # => [1, 1, 2, 3, 5, 8]
+puts
+print fibonacci(8) # => [1, 1, 2, 3, 5, 8, 13, 21]
+puts
