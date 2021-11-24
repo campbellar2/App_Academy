@@ -1,0 +1,15 @@
+def caesar_cipher(str, num)
+    alphabet = "abcdefghijklmnopqrstuvwxyz"
+    new_str = ""
+    str.each_char do |char|
+        old_i = alphabet.index(char)
+        new_i = old_i + num
+        char = alphabet[new_i % 26]
+        new_str += char
+    end
+    return new_str
+end
+
+puts caesar_cipher("apple", 1)    #=> "bqqmf"
+puts caesar_cipher("bootcamp", 2) #=> "dqqvecor"
+puts caesar_cipher("zebra", 4)    #=> "difve"
