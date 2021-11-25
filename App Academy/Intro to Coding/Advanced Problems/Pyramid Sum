@@ -1,0 +1,31 @@
+# For example, the base [1, 4, 6] gives us the following pyramid
+#     15
+#   5   10
+# 1   4    6
+
+def pyramid_sum(base)
+    newArr = [base]
+    new_ele = adjacent_sum(base)
+    while new_ele.length > 0
+        newArr.unshift(new_ele)
+        new_ele = adjacent_sum(new_ele)
+    end
+    return newArr
+end
+
+def adjacent_sum(arr)
+    sum = []
+    arr.each_with_index do |num, i|
+        if i > 0
+            sum << num + arr[i - 1]
+        end
+    end
+    return sum
+end
+
+
+print pyramid_sum([1, 4, 6]) #=> [[15], [5, 10], [1, 4, 6]]
+puts
+
+print pyramid_sum([3, 7, 2, 11]) #=> [[41], [19, 22], [10, 9, 13], [3, 7, 2, 11]]
+puts
