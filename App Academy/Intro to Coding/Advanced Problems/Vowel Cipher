@@ -1,0 +1,18 @@
+def vowel_cipher(string)
+    vowels = "aeiou"
+    newString = ""
+    string.each_char do |char|
+        if vowels.include?(char)
+            old_index = vowels.index(char)
+            new_index = old_index + 1
+            char = vowels[new_index % 5]
+            newString += char
+        else 
+            newString += char
+        end
+    end
+    return newString
+end
+
+puts vowel_cipher("bootcamp") #=> buutcemp
+puts vowel_cipher("paper cup") #=> pepir cap
