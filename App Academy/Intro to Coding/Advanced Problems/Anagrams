@@ -1,0 +1,20 @@
+def anagrams?(word1, word2)
+    if word_hash(word1) == word_hash(word2)
+        return true
+    else 
+        return false
+    end
+end
+
+def word_hash(str)
+    count = Hash.new(0)
+    str.each_char do |char|
+        count[char] += 1
+    end
+    return count
+end
+
+puts anagrams?("cat", "act")          #=> true
+puts anagrams?("restful", "fluster")  #=> true
+puts anagrams?("cat", "dog")          #=> false
+puts anagrams?("boot", "bootcamp")    #=> false
