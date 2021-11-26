@@ -1,0 +1,24 @@
+def same_char_collapse(str)
+    reducable = true
+    while reducable
+        reducable = false
+        chars = str.split("")
+        chars.each_with_index do |char, i|
+            if char == chars[i + 1]
+                chars[i] = ""
+                chars[i + 1] = ""
+                reducable = true
+                break
+            end
+        end
+        str = chars.join("")
+    end
+    return str
+end
+
+puts same_char_collapse("zzzxaaxy")   #=> "zy"
+# because zzzxaaxy -> zxaaxy -> zxxy -> zy
+
+
+puts same_char_collapse("uqrssrqvtt") #=> "uv"
+# because uqrssrqvtt -> uqrrqvtt -> uqqvtt -> uvtt -> uv
