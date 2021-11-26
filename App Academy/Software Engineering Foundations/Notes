@@ -139,3 +139,49 @@ multi_d = [
 p multi_d.flatten   # => ["a", "b", "c", "d", "e", "f"]
 
 #############################
+
+# Symbols
+
+# Ruby has an additional data type that is similar to Strings, called Symbols.
+# In Ruby, we can denote a symbol using a colon (:) before writing characters. 
+# Where a string is wrapped in quotes, a symbol just has a leading colon. 
+#Both strings and symbols contain many characters, but they are not equivalent.
+
+str = "hello"   # the string 
+sym = :hello    # the symbol
+
+p str.length    # => 5
+p sym.length    # => 5
+
+p str[1]        # => "e"
+p sym[1]        # => "e"
+
+p str == sym    # => false
+# a string is different from a symbol!
+
+# The main difference between a string and a symbol, is that symbols are immutable, and can never be changed
+str = "hello"
+sym = :hello
+
+str[0] = "x"
+sym[0] = "x"
+
+p str   # => "xello"
+p sym   # => :hello
+
+# Symbols as hash keys
+my_bootcamp = { :name=>"App Academy", :color=>"red", :locations=>["NY", "SF", "ONLINE"] }
+p my_bootcamp           # => {:name=>"App Academy", :color=>"red", :locations=>["NY", "SF", "ONLINE"]}
+p my_bootcamp[:color]   #=> "red
+
+#When initializing a hash with symbol keys, Ruby offers a shortcut. 
+#We can drop the rocket (=>) and move the colon (:) to the right of the symbol
+my_bootcamp = { name:"App Academy", color:"red", locations:["NY", "SF", "ONLINE"] }
+p my_bootcamp           # => {:name=>"App Academy", :color=>"red", :locations=>["NY", "SF", "ONLINE"]}
+p my_bootcamp[:color]   #=> "red
+
+# This shortcut is only allowed when initializing the symbols in the hash. 
+# When getting a value from the hash after initialization, we must always put the colon on the left like normal.
+# hash[:key] is the correct syntax. Writing hash[key:] is invalid.
+
+##############################
