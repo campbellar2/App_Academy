@@ -1,0 +1,37 @@
+# Write a method, coprime?(num_1, num_2), that accepts two numbers as args.
+# The method should return true if the only common divisor between the two numbers is 1.
+# The method should return false otherwise. For example coprime?(25, 12) is true because
+# 1 is the only number that divides both 25 and 12.
+
+def coprime?(num1, num2)
+    arr_num1 = divisors(num1)
+    arr_num2 = divisors(num2)
+    count = 0
+    arr_num1.each do |div|
+        if arr_num2.include?(div)
+            count += 1
+        end
+    end
+    if count == 1
+        return true
+    end
+    return false
+end
+
+def divisors(num)
+    arr = []
+    (1...num).each do |int|
+        if num % int == 0
+            arr << int
+        end
+
+    end
+    return arr
+end
+
+
+
+p coprime?(25, 12)    # => true
+p coprime?(7, 11)     # => true
+p coprime?(30, 9)     # => false
+p coprime?(6, 24)     # => false
