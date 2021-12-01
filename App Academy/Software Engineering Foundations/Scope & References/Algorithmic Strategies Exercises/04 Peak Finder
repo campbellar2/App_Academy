@@ -8,22 +8,16 @@
 def peak_finder(arr)
     peaks = []
     (0...arr.length).each do |i|
-        if i == 0
-            if arr[i] > arr[i + 1]
-                peaks << arr[i]
-            end
-        elsif i > arr.length - 1
-            if arr[i] > arr[i + 1] && arr[i] < arr[i -1]
-                peaks << arr[i]
-            end
-        else 
-            if arr[i] > arr[i -1]
-                peaks << arr[i]
-            end
+        if i == 0 && arr[i] > arr[i + 1]
+            peaks << arr[i]
+        elsif i < arr.length - 1 && arr[i] > arr[i + 1] && arr[i] > arr[i -1]
+            peaks << arr[i]
+        elsif i == arr.length - 1 && arr[i] > arr[i -1]
+            peaks << arr[i]
+        else
         end
-        
     end
-    return peaks    
+    peaks    
 end
 
 p peak_finder([1, 3, 5, 4])         # => [5]
