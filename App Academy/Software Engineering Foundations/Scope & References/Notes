@@ -1,0 +1,63 @@
+# Software Engineering Foundation Notes #
+
+#######
+# Scope & References #
+
+# Bubble Sort Algorithm #
+
+#The Bubble Sort algorithm gets its name because it behaves as if the large numbers float to the top of the array like bubbles.
+#Bubble sort works by performing multiple passes to move elements closer to their final positions. 
+#A single pass will iterate through the entire array once.
+#A pass works by scanning the array from left to right, two adjacent elements at a time, and checking if they are ordered correctly. 
+#To be ordered correctly the first element must be less than or equal to the second. 
+#If the two elements are not ordered properly, then we swap them to correct their relative order. 
+#Afterwards, we scan the next two numbers and continue to repeat this process until we have gone through the entire array.
+
+#Bubble Sort Completion
+#During Bubble Sort, we can tell if the array is in sorted order by checking if we made a swap during the previous pass performed.
+
+#Swapping Elements
+#A key detail is that we may need an extra temporary variable to store one of the elements since we will be overwriting them in the array:
+array = ["a", "b", "c", "d"]  # let's swap "a" and "b"
+temp = array[0];              # save a copy of the first ele
+array[0] = array[1];          # overwrite the first ele with the second ele
+array[1] = temp;              # overwrite the second ele with the first ele copy
+p array          # => ["b", "a", "c", "d"]
+
+#It worked! But hmmm, using that temp variable was kind of messy. 
+#Is there an easier way to swap elements of an array? Yep! Ruby has many clean shortcuts:
+array = ["a", "b", "c", "d"]    # let's swap "a" and "b"
+array[0], array[1] = array[1], array[0]
+p array         # => ["b", "a", "c", "d"]
+
+#As a side note: you can use this swapping mechanic for entire variables as well
+food = "mom's spaghetti"
+clothing = "sweater"
+
+food, clothing = clothing, food
+
+p food      # => "sweater"   
+p clothing  # => "mom's spaghetti"
+
+#Bubble Sort Ruby Implementation
+#Using swap and our newfound understanding of Bubble Sort, let's code! 
+#Take a look at the snippet below and try to understand how it corresponds to our conceptual understanding of the algorithm. 
+def bubble_sort(array)
+    sorted = false  # when this var is false, that means the array is not fully sorted yet
+
+    while !sorted       # while the array is not sorted...
+        sorted = true       # reset the sorted flag to true 
+
+        # the each below will perform a single 'pass' of bubble sort
+        (0...array.length - 1).each do |i|
+            if array[i] > array[i + 1]                              # if adjacent elements are out of order...
+                array[i], array[i + 1] = array[i + 1], array[i]     #   then swap their positions
+                sorted = false                                      # since we just made a swap, we may need to perform
+            end                                                     # an additional 'pass', so set the flag to false
+        end
+    end
+
+    array
+end
+
+p bubble_sort([2, 8, 5, 2, 6])
