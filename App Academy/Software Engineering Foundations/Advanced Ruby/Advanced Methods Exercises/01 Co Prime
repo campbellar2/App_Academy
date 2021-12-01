@@ -4,29 +4,12 @@
 # 1 is the only number that divides both 25 and 12.
 
 def coprime?(num1, num2)
-    arr_num1 = divisors(num1)
-    arr_num2 = divisors(num2)
-    count = 0
-    arr_num1.each do |div|
-        if arr_num2.include?(div)
-            count += 1
+    (2..num2).each do |divisor|
+        if num2 % divisor == 0 && num1 % divisor == 0
+            return false
         end
     end
-    if count == 1
-        return true
-    end
-    return false
-end
-
-def divisors(num)
-    arr = []
-    (1...num).each do |int|
-        if num % int == 0
-            arr << int
-        end
-
-    end
-    return arr
+    return true
 end
 
 
