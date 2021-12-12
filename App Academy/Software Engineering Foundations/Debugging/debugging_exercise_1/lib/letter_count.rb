@@ -8,7 +8,9 @@ require "byebug"
 def letter_count(string, char)
     count = 0
     string.each_char do |c| 
-        count += 1 if c = char 
+        if c == char
+            count += 1
+        end
     end
     count
 end
