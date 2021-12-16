@@ -1,13 +1,20 @@
 def all_words_capitalized?(array)
-    array.all? {|word| word[0] == word[0].upcase && word[1..-1] == word[1..-1].downcase}
+    array.all? {|word| word == word.capitalize}
 end
 
 
 def no_valid_url?(urls)
-    urls.none? { |url| url.include?('.com') || url.include?('.net') || url.include?('.io') || url.include?('.org')}
+    valid_urls = ['.com', '.net', '.io', '.org']
+    urls.none? do |url| 
+        valid_urls.any? { |ending| url.end_with?(ending)}
+    end
 end
 
 
 def any_passing_students?(students)
-    students.any? { |student| (student[:grades].sum / student[:grades].length) > 75.0}
+    students.any? do |student|
+        grades = student[:grades]
+        avg = grades.sum / (grades.length * 1.0)
+        avg >= 75
+    end
 end
