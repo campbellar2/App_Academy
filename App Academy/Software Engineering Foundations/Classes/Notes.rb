@@ -467,3 +467,36 @@ p Dog.whos_louder(d1, d2) # "Doge"
     #Class::method_name means method_name is a class method
 
 ##########
+
+# Monkey Patching
+
+# Monkey Patching is adding additional methods to an existing class
+
+# Ruby types are really classes: Integer, String, Array, Hash, etc.
+
+#adding a method to existing class
+class String
+    def upcase?
+        self == self.upcase
+    end
+end
+
+p "hello".upcase? # false
+p "HELLO".upcase? # true
+
+#with integers
+class Integer
+    def prime?
+        if self < 2
+            return false
+        end
+        (2..self).each do |factor|
+            if self % factor == 0
+                return false
+            end
+            return true
+        end
+    end
+end
+
+p 7.prime? # true
